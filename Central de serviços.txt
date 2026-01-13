@@ -12,7 +12,7 @@ Desenvolvi uma aplicação full-stack usando arquitetura MVC com Flask (Python),
 Autenticação corporativa via LDAP/Active Directory com SSO
 Sistema de notificações em tempo real com polling otimizado e cache inteligente
 Chat integrado com upload de anexos e renderização incremental para evitar flickering
-Formulários dinâmicos configuráveis via interface administrativa
+Formulários dinâmicos configuráveis via interface\ administrativa
 Dual database binding (MySQL) para sincronização com banco corporativo
 Sistema de permissões granular baseado em grupos e perfis
 Stack Tecnológico
