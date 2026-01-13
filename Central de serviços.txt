@@ -1,0 +1,356 @@
+Central de serviços
+Sistema Central de Serviços - SEJUS/DF
+Descrição Executiva
+Sistema web corporativo de gestão de chamados e serviços desenvolvido para a Secretaria de Estado de Justiça e Cidadania do Distrito Federal. A aplicação digitaliza e automatiza o fluxo completo de solicitações internas, desde abertura até resolução, incluindo suporte técnico, gestão de telefonia móvel, empréstimo de equipamentos e controle de ativos.
+
+Contexto e Desafio
+A SEJUS enfrentava processos manuais descentralizados sem rastreabilidade, comunicação fragmentada entre solicitantes e equipe técnica, e ausência de métricas para tomada de decisão. O desafio foi criar uma solução escalável que integrasse com a infraestrutura corporativa existente (Active Directory) e atendesse múltiplos perfis de usuário.
+
+Solução Técnica
+Desenvolvi uma aplicação full-stack usando arquitetura MVC com Flask (Python), implementando:
+
+Autenticação corporativa via LDAP/Active Directory com SSO
+Sistema de notificações em tempo real com polling otimizado e cache inteligente
+Chat integrado com upload de anexos e renderização incremental para evitar flickering
+Formulários dinâmicos configuráveis via interface administrativa
+Dual database binding (MySQL) para sincronização com banco corporativo
+Sistema de permissões granular baseado em grupos e perfis
+Stack Tecnológico
+Backend: Python 3 • Flask • SQLAlchemy • Flask-Login • PyMySQL • LDAP Integration
+Frontend: JavaScript ES6+ • jQuery • Bootstrap 4 • Chart.js • DataTables
+Database: MySQL 8.0 (dual binding)
+Infraestrutura: Linux • Apache/Nginx • WSGI • SMTP
+
+Resultados Mensuráveis
+80% de redução no tempo de abertura de chamados
+100% de rastreabilidade em todas as solicitações
+60% de aumento na satisfação dos usuários (baseado em avaliações)
+Centralização completa de 5+ processos manuais diferentes
+Destaques Técnicos
+Implementação de design patterns (Repository, Factory, Observer, Decorator)
+Otimização de performance com renderização incremental e lazy loading
+Security best practices: SQL Injection prevention, CSRF protection, sanitização de inputs
+Arquitetura modular usando Flask Blueprints para escalabilidade
+Sistema de auditoria completo com logs de todas as ações
+Competências Demonstradas
+Desenvolvimento Full Stack • Arquitetura de Software • Integração LDAP/AD • Performance Optimization • Database Design • RESTful API • Security • UX/UI • Resolução de Problemas Complexos
+
+
+Sistema de Fiscalização e Monitoramento - SUBSIS/SEJUS-DF
+Descrição do Projeto
+Sistema web completo de gestão e fiscalização desenvolvido para a Subsecretaria do Sistema Penitenciário (SUBSIS) da Secretaria de Justiça do Distrito Federal. A aplicação gerencia fiscalizações de múltiplos tipos de estabelecimentos, incluindo sistemas de videomonitoramento, clínicas, cemitérios, crematórios e funerárias.
+
+Principais Funcionalidades
+Gestão de Fiscalizações Multi-tipo: Sistema modular que suporta diferentes tipos de fiscalização com checklists customizados para cada categoria (câmeras, clínicas, cemitérios, crematórios e funerárias)
+
+Controle de Usuários e Permissões: Sistema de autenticação integrado com LDAP/Active Directory, com perfis de acesso (Fiscalizador e Administrador) e controle granular de permissões
+
+Dashboard Analytics: Painel interativo com métricas, gráficos e indicadores de desempenho usando Chart.js para visualização de dados em tempo real
+
+Gerenciamento de Quantitativos: Sistema de controle de itens previstos versus verificados, com acompanhamento detalhado de equipamentos e componentes de infraestrutura
+
+Gestão Documental: Upload e organização de fotos e anexos como evidências, com suporte para múltiplos formatos e gerenciamento por categoria
+
+Assinaturas Digitais: Sistema de assinatura digital por cargo (fiscais e representantes) com controle de recusa e impossibilidade de assinatura
+
+Geração de Relatórios: Exportação automatizada de relatórios em PDF e Excel com dados completos das fiscalizações, incluindo fotos e assinaturas
+
+Sistema de Log Completo: Auditoria de todas as ações realizadas no sistema com registro de usuário, IP e timestamp
+
+Tecnologias Utilizadas
+Backend:
+
+Python 3.7.6
+Flask 1.0.2 (Arquitetura baseada em Blueprints)
+SQLAlchemy (ORM)
+Flask-Login (Autenticação)
+LDAP3 (Integração Active Directory)
+MySQL 8.0
+Frontend:
+
+HTML5, CSS3, JavaScript (ES6+)
+Bootstrap 4 (UI/UX Responsivo)
+jQuery
+Chart.js (Visualização de Dados)
+Infraestrutura:
+
+wkhtmltopdf (Geração de PDFs)
+WSGI (Deploy em produção)
+Sistema de variáveis de ambiente (.env)
+Arquitetura e Padrões
+Padrão MVC: Separação clara entre Models, Views e Controllers
+Blueprint Architecture: Módulos independentes para cada tipo de fiscalização
+Database Migration: Controle de versão do banco de dados com Flask-Migrate
+Security: Proteção de rotas com decorators, sanitização de uploads, limitação de tamanho de arquivos
+Logging: Sistema centralizado de auditoria e rastreamento de ações
+Diferenciais Técnicos
+Integração com Active Directory corporativo para autenticação única (SSO)
+Sistema modular e escalável, permitindo fácil adição de novos tipos de fiscalização
+Interface responsiva e intuitiva, otimizada para uso em campo
+Gerenciamento robusto de arquivos com validação de extensões e controle de tamanho
+Arquitetura preparada para deploy em produção com WSGI e suporte a SSL/TLS
+Resultados e Impacto
+Sistema utilizado pela equipe de fiscalização da SEJUS-DF para padronização e digitalização de processos, eliminando formulários em papel e centralizando informações. Permite rastreabilidade completa das fiscalizações e geração rápida de relatórios para tomada de decisão.
+
+# DITRANS - Sistema de Gestão de Frota Veicular
+
+## 📋 Sobre o Projeto
+
+O **DITRANS** (Departamento de Trânsito) é um módulo de gestão de frota desenvolvido para o Sistema Unificado de Administração Governamental (SUAG). O sistema foi criado para controlar e monitorar a movimentação de veículos oficiais, garantindo conformidade com o Decreto 16.109/1994 e oferecendo rastreabilidade completa das saídas e retornos dos veículos.
+
+## 🎯 Funcionalidades Principais
+
+### 1. **Gestão de Usuários**
+- Sistema de primeiro acesso com validação automática de matrícula
+- Integração com base de servidores públicos para validação de dados
+- Três níveis de permissão:
+  - **Administrador**: Controle total do sistema
+  - **Administrador de Unidade**: Gestão de veículos da sua lotação
+  - **Usuário**: Registro de saídas pessoais
+
+### 2. **Cadastro e Gerenciamento de Veículos**
+- Registro completo de veículos com marca, modelo e placa
+- Vinculação de veículos a unidades administrativas
+- Sistema de busca e filtros por placa e unidade
+- Controle de veículos excluídos (soft delete)
+
+### 3. **Registro de Movimentações**
+- **Saídas Regulares**: Sistema completo de registro com:
+  - Data e horário de saída/retorno
+  - Quilometragem de saída/retorno
+  - Destino e finalidade da viagem
+  - Validação de primeira e última saída do dia
+  - Conformidade com Decreto 16.109/1994
+
+- **Sistema de Empréstimo de Veículos**:
+  - Solicitação de empréstimo entre servidores
+  - Aprovação/recusa de empréstimos
+  - Status: pendente, ativo, finalizado
+
+### 4. **Inspeção Veicular (Decreto 16.109/1994)**
+Implementação completa do decreto municipal que exige:
+- ✅ Declaração de inspeção na primeira saída do dia
+- ✅ Campo obrigatório para informar irregularidades
+- ✅ Validação automática: motorista deve confirmar inspeção OU informar irregularidades
+- ✅ Registro de última saída do dia para vistoria final
+
+### 5. **Documentação Fotográfica**
+- Upload de fotos do veículo na saída:
+  - Painel (hodômetro)
+  - Veículo completo
+  - Frente, traseira, laterais e parte superior
+- Sistema de armazenamento seguro de imagens
+
+### 6. **Relatórios e Consultas**
+- Histórico completo de movimentações por veículo
+- Filtros por data, placa e unidade
+- Visualização de empréstimos ativos e finalizados
+- Quilometragem acumulada por período
+
+### 7. **Recursos Administrativos Avançados**
+- **Administradores podem**:
+  - Iniciar múltiplas movimentações simultâneas do mesmo veículo
+  - Atribuir saídas para outros motoristas
+  - Editar e excluir registros
+  - Gerenciar veículos de todas as unidades
+
+- **Interface Diferenciada**:
+  - Dois botões de iniciação: "Iniciar Minha Saída" e "Iniciar Nova Saída"
+  - Busca de usuários para atribuição de viagens
+  - Controles exclusivos de administração
+
+## 🛠️ Tecnologias Utilizadas
+
+### Backend
+- **Framework**: Flask (Python)
+- **ORM**: SQLAlchemy
+- **Autenticação**: Flask-Login
+- **Banco de Dados**: MySQL (via PyMySQL)
+- **Arquitetura**: Blueprint pattern para modularização
+
+### Frontend
+- **Template Engine**: Jinja2
+- **CSS Framework**: Tailwind CSS
+- **JavaScript**: Vanilla JS (sem frameworks)
+- **Ícones**: Font Awesome
+- **Design Responsivo**: Mobile-first approach
+
+### Estrutura do Banco de Dados
+
+#### Tabela: `usuario_ditrans`
+```python
+- id (PK)
+- matricula
+- nome_completo
+- telefone
+- unidade_lotacao
+- role (admin/unit_admin/user)
+- login_usuario
+- id_usuario (FK para Usuario principal)
+```
+
+#### Tabela: `veiculos_ditrans`
+```python
+- id (PK)
+- name (modelo)
+- brand (marca)
+- plate (placa)
+- unidade_lotacao
+```
+
+#### Tabela: `logs_departamento_ditrans`
+```python
+- id (PK)
+- vehicleName, vehiclePlate
+- driverName, matricula, telefone
+- destination, finalidade
+- departureTime, departureKm
+- returnTime, returnKm
+- log_type (regular/loan)
+- status (active/pending_start/completed)
+- primeira_saida_dia, ultima_saida_dia
+- declaracao_inspecao_primeira, declaracao_inspecao_ultima
+- irregularidade_veiculo
+- excluido, editado (controle lógico)
+- URLs de fotos (departure/return)
+```
+
+## 💡 Desafios Técnicos Superados
+
+### 1. **Gestão de Escopo de Variáveis**
+**Problema**: `UnboundLocalError` com módulo datetime sendo referenciado antes da atribuição devido a import duplicado dentro de função.
+
+**Solução**: Identificação e remoção de import local que causava sombreamento do módulo global.
+
+### 2. **Exclusão Lógica (Soft Delete)**
+**Problema**: Registros excluídos (flag `excluido=True`) ainda apareciam como "veículo em movimento" e bloqueavam novas saídas.
+
+**Solução**: Implementação de filtros `excluido == False` em todas as queries que verificam veículos ativos:
+```python
+existing_log = LogsDepartamentoDitrans.query.filter(
+    LogsDepartamentoDitrans.vehiclePlate == data['placa'],
+    LogsDepartamentoDitrans.returnTime == None,
+    LogsDepartamentoDitrans.excluido == False  # Filtro crítico
+).first()
+```
+
+### 3. **Privilégios Administrativos Granulares**
+**Problema**: Administradores ficavam limitados pela mesma regra de usuários comuns (uma movimentação por veículo).
+
+**Solução**: Verificação de role antes de aplicar restrições:
+```python
+usuario_ditrans = UsuarioDitrans.query.filter(
+    UsuarioDitrans.id_usuario == current_user.id
+).first()
+user_role = usuario_ditrans.role if usuario_ditrans else 'user'
+
+if user_role != 'admin':
+    # Aplica restrição apenas para não-admins
+    existing_log = LogsDepartamentoDitrans.query.filter(...)
+```
+
+### 4. **UI Condicional com Estado Compartilhado**
+**Problema**: Campo de busca de usuários aparecia para todos os modos de iniciação de viagem, mas deveria ser exclusivo para o botão "Iniciar Nova Saída" do admin.
+
+**Solução**: Sistema de controle de estado no frontend que:
+- Detecta qual botão foi clicado
+- Exibe/oculta campo de busca apropriadamente
+- Preenche automaticamente dados do usuário logado quando necessário
+
+### 5. **Conformidade Legal Automatizada**
+**Implementação**: Validação de inspeção veicular conforme Decreto 16.109/1994:
+```python
+declaracao_ok = data.get('declaracao_inspecao_primeira', False)
+irregularidades = data.get('irregularidade_veiculo', '').strip()
+
+# Decreto exige: inspeção confirmada OU irregularidades informadas
+if not declaracao_ok and not irregularidades:
+    return jsonify({
+        "error": "Conforme Decreto 16.109/1994: confirme a inspeção OU informe as irregularidades."
+    }), 400
+```
+
+## 📊 API RESTful
+
+### Principais Endpoints
+
+#### Usuários
+- `GET /api/current_user` - Dados do usuário autenticado
+- `PUT /api/current_user` - Atualização de perfil
+- `GET /api/search_users` - Busca de usuários por nome/matrícula
+
+#### Veículos
+- `GET /api/vehicles` - Lista todos os veículos
+- `POST /api/vehicles` - Cadastra novo veículo
+- `PUT /api/vehicles/<id>` - Atualiza veículo
+- `DELETE /api/vehicles/<id>` - Remove veículo (soft delete)
+- `GET /api/vehicles/by_unit` - Filtra veículos por unidade
+
+#### Movimentações
+- `GET /api/logs` - Lista movimentações (com filtros opcionais)
+- `POST /api/logs` - Registra nova saída
+- `PUT /api/logs/<id>` - Atualiza movimentação
+- `PUT /api/logs/<id>/finish` - Finaliza saída (registro de retorno)
+- `DELETE /api/logs/<id>` - Remove registro (soft delete)
+- `GET /api/user_logs` - Movimentações do usuário autenticado
+
+#### Utilitários
+- `POST /api/upload` - Upload de fotos
+- `GET /api/verificar_matricula/<matricula>` - Validação de matrícula
+
+## 🎨 Experiência do Usuário
+
+### Interface Intuitiva
+- **Dashboard unificado** com todas as funcionalidades em uma única página
+- **Navegação por abas**: Início, Cadastros, Relatórios
+- **Feedback visual imediato** com alertas de sucesso/erro
+- **Pesquisa em tempo real** por placa ou nome de veículo
+- **Modais responsivos** para formulários e detalhes
+
+### Acessibilidade
+- Design responsivo para desktop e mobile
+- Ícones intuitivos com Font Awesome
+- Cores contrastantes seguindo padrões de acessibilidade
+- Mensagens de erro claras e orientativas
+
+## 📈 Resultados e Impacto
+
+### Benefícios Operacionais
+- ✅ **Rastreabilidade completa** de todos os veículos da frota
+- ✅ **Conformidade legal** com Decreto 16.109/1994 automatizada
+- ✅ **Redução de tempo** no registro de movimentações
+- ✅ **Histórico permanente** de quilometragem e destinos
+- ✅ **Controle descentralizado** com permissões por unidade
+
+### Métricas de Qualidade
+- **Arquitetura modular**: Uso de Blueprints Flask para separação de concerns
+- **Segurança**: Autenticação obrigatória em todas as rotas sensíveis
+- **Performance**: Queries otimizadas com filtros indexados
+- **Manutenibilidade**: Código organizado com padrão MVC
+
+## 🔧 Melhorias Futuras
+
+- [ ] Sistema de notificações push para empréstimos
+- [ ] Relatórios em PDF/Excel exportáveis
+- [ ] Dashboard com gráficos de utilização da frota
+- [ ] Integração com sistemas de manutenção preventiva
+- [ ] App mobile nativo para registro de saídas
+
+---
+
+## 👨‍💻 Habilidades Demonstradas
+
+Este projeto demonstra competências em:
+- **Desenvolvimento Full-Stack** (Python/Flask + JavaScript)
+- **Modelagem de Banco de Dados** relacional
+- **Autenticação e Autorização** com controle de acesso baseado em roles
+- **API RESTful** design e implementação
+- **Resolução de Bugs Complexos** (escopo de variáveis, soft delete)
+- **Conformidade Legal** com automatização de requisitos regulatórios
+- **UI/UX Design** responsivo e intuitivo
+- **Arquitetura de Software** modular e escalável
+
+---
+
+**Desenvolvido como parte do Sistema SUAG**  
+*Sistema Unificado de Administração Governamental*
