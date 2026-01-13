@@ -3,7 +3,7 @@ USER_DATA = {
     "name": "Luiz Felipe Souza da Silva Meneses",
     "role": "Desenvolvedor Full Stack & Estagiário de TI",
     "location": "Vicente Pires, Brasília - DF",
-    "bio": "Graduando em Sistemas de Informação pela UniEURO (8º semestre). Desenvolvedor Full Stack especializado em Python/Flask com experiência em sistemas governamentais corporativos. Expertise em integração LDAP/Active Directory, arquitetura MVC, análise de dados e automação de processos. Focado em criar soluções escaláveis e seguras.",
+    "bio": "Graduando em Sistemas de Informação pela UNIEURO. Desenvolvedor Full Stack especializado em Python/Flask com experiência em sistemas governamentais corporativos. Expertise em integração LDAP/Active Directory, arquitetura MVC, análise de dados e automação de processos. Focado em criar soluções escaláveis e seguras.",
     "email": "luiz.felipe.menesez@gmail.com",
     "social": {
         "github": "https://github.com/LuizBigs",
